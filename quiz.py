@@ -24,6 +24,7 @@ answer_boxes = [answer_box1, answer_box2, answer_box3, answer_box4]
 questions = []
 question_count = 0
 question_index = 0
+index = 1
 
 def draw():
     global marque_message
@@ -35,5 +36,15 @@ def draw():
     screen.draw.filled_rect(skip_box, "purple")
     for answer_box in answer_boxes:
         screen.draw.filled_rect(answer_box, "orange")
-
+        #Part 2
+        
+    marque_message = "Welcome to Quiz Master..."+f"Q: {question_count} of 11" 
+    screen.draw.textbox(marque_message, marque_box, color = "black")
+    screen.draw.textbox(str(time_left), timer_box, color = "brown", shadow = (0.5, 0.5), scolor = "grey")
+    screen.draw.textbox("Skip", skip_box, color = "orange", angle = -90)
+    
+    screen.draw.textbox(question[0].strip(), question_box, color = "red")
+    for answer in answer_boxes:
+        screen.draw.textbox(question[index], color = "purple")
+        index = index + 1
 pgzrun.go()
